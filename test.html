@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="name" type="text" placeholder="name"/>
+    <input id="address" type="text" placeholder="address"/>
+    <input id="pincode" type="text" placeholder="pincode"/>
+    <input id="qualification" type="text" placeholder="qualification"/>
+    <input id="experience" type="text" placeholder="experience"/>
+    <input id="disease" type="text" placeholder="disease"/>
+    <input id="specialist" type="text" placeholder="specialist"/>
+    <input id="contact" type="text" placeholder="contact"/>
+    <button id="submit-button">Submit</button>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.2/jquery.min.js" integrity="sha512-tWHlutFnuG0C6nQRlpvrEhE4QpkG1nn2MOUMWmUeRePl4e3Aki0VB6W1v3oLjFtd0hVOtRQ9PHpSfN6u6/QXkQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+    
+        
+
+        $("#submit-button").on("click", function(){
+            let data = {
+                name: $("#name").val(),
+                address: $("#address").val(),
+                servicePincode: $("#pincode").val(),
+                qualification: $("#qualification").val(),
+                experience: $("#experience").val(),
+                disease: $("#disease").val(),
+                specialist: $("#specialist").val(),
+                contactDetail: $("#contact").val(),
+            }
+            addDoctor(data);
+        })
+        
+        function addDoctor(data) {
+            axios
+                .post('http://localhost:8080/api/add-doctor', data)
+                .then(response => {
+                    console.log(`GET list users`, response.data)
+                })
+                .catch(error => console.error(error))
+        }
+    </script>
+</body>
+</html>
