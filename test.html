@@ -17,6 +17,7 @@
     <input id="disease" type="text" placeholder="disease" />
     <input id="specialist" type="text" placeholder="specialist" />
     <input id="contact" type="text" placeholder="contact" />
+    <input id="time" type="text" placeholder="time" />
     <button id="submit-button">Submit</button>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.2/jquery.min.js"
         integrity="sha512-tWHlutFnuG0C6nQRlpvrEhE4QpkG1nn2MOUMWmUeRePl4e3Aki0VB6W1v3oLjFtd0hVOtRQ9PHpSfN6u6/QXkQ=="
@@ -36,6 +37,7 @@
                 disease: $("#disease").val(),
                 specialist: $("#specialist").val(),
                 contactDetail: $("#contact").val(),
+                time: $("#time").val(),
             }
             addDoctor(data);
         })
