@@ -41,7 +41,9 @@
          <h2 id="appointment-form-label">Online Apointment form</h2>
          <div id="online-appointment-doctor-info">
             <h3 id="appointment-doctor-name">Doctor name</h3>
+            <h3 id="appointment-doctor-speciality">Doctor name</h3>
             <h3 id="appointment-doctor-contact">doctor@gmail.com</h3>
+            <h3 id="appointment-doctor-address">doctor@gmail.com</h3>
          </div>
          <div id="online-appointment-form">
             <label for="patient-name">Patient Name</label>
@@ -268,8 +270,8 @@
                                  <p>Contact : ${element.contactDetail}</p>
                                  <p>time : ${element.time}</p>
                                 
-                                <a> <button onclick="showOnlineAppointmentPopup('${element.name}','${element.contactDetail}')" type="button" class="button button1" >online appointment</button></a>
-                                 <a href="index.html"><button type="button" class="button button1" >offline appointment</button></a>
+                                <a> <button onclick="showOnlineAppointmentPopup('${element.name}','${element.specialist}','${element.contactDetail}','${element.address}', 1)" type="button" class="button button1" >online appointment</button></a>
+                                 <a><button onclick="showOnlineAppointmentPopup('${element.name}','${element.specialist}','${element.contactDetail}','${element.address}', 2)"  type="button" class="button button1" >offline appointment</button></a>
                                  <br>
                               </div>`;
                               
@@ -286,10 +288,19 @@
          }
       }
 
-      function showOnlineAppointmentPopup(doctor, contact) {
+      function showOnlineAppointmentPopup(doctor, specialist, contact,address, type) {
         $("#appointment-popup-overlay").show();
         $("#appointment-doctor-name").text(doctor);
+        $("#appointment-doctor-speciality").text(specialist);
         $("#appointment-doctor-contact").text(contact);
+        if(type == 1) {
+            $("#appointment-doctor-address").hide();
+            $("#appointment-form-label").text("Online Appointment form");
+        } else {
+            $("#appointment-form-label").text("Offline Appointment form");
+            $("#appointment-doctor-address").show();
+            $("#appointment-doctor-address").text(address);
+        }
       }
       function hideOnlineAppointmentPopup() {
         $("#appointment-popup-overlay").hide();
