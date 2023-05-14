@@ -34,6 +34,34 @@
 </head>
 
 <body>
+   <!-- Appointment popup start-->
+   <div id="appointment-popup-overlay">
+      <div id="appointment-popup-container">
+         <h2 id="appointment-form-label">Online Apointment form</h2>
+         <div id="online-appoinement-doctor-info">
+            <h3 id="appointment-doctor-name">Doctor name</h3>
+            <h3 id="appointment-doctor-contact">doctor@gmail.com</h3>
+         </div>
+         <div id="online-appointment-form">
+            <label for="patient-name">Patient Name</label>
+            <input type="text" id="patient-name">
+            <label for="patient-age">Patient Age</label>
+            <input type="text" id="patient-age">
+            <label for="patient-gender">Patient gender</label>
+            <select type="text" id="patient-gender">
+               <option value="1">Male</option>
+               <option value="2">Female</option>
+            </select>
+            <label for="patient-contact">Patient contact</label>
+            <input type="number" id="patient-contact">
+            <label for="patient-address">Patient address</label>
+            <input type="text" id="patient-address">
+            <label for="disease-description">Disease description</label>
+            <textarea id="disease-description"></textarea>
+         </div>
+      </div>
+   </div>
+   <!-- Appointment popup end-->
    <!-- header section start -->
    <div class="header_section">
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -238,8 +266,8 @@
                                  <p>Contact : ${element.contactDetail}</p>
                                  <p>time : ${element.time}</p>
                                 
-                                 <button type="button" class="button button1" >online appointment</button>
-                                 <button type="button" class="button button1" >offline appointment</button>
+                                <a href="index.html"> <button type="button" class="button button1" >online appointment</button></a>
+                                 <a href="index.html"><button type="button" class="button button1" >offline appointment</button></a>
                                  <br>
                               </div>`;
                               
