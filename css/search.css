@@ -67,23 +67,25 @@
 	}
 }
 #appointment-popup-overlay {
-	position: fixed !important;
+	display: none;
 	top: 0;
-	left: 0;
-	background: #00000050;
+	bottom: 0;
+	position: fixed;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	background: #000000ad;
 	z-index: 9999;
 	width: 100%;
 	height: 100vh;
-	overflow-y: scroll;
-	display: flex;
-	align-items: center;
-	justify-content: center;
+	overflow-y: auto;
+	padding: 30px;
 }
 #appointment-popup-container {
-	width: 500px;
+	width: 700px;
 	background: #fff;
 	padding: 20px;
 	border-radius: 10px;
+	margin: auto;
 }
 #appointment-form-label {
 	width: 100%;
@@ -94,21 +96,57 @@
 	border-radius: 10px;
 	background-color: #dfdfdf;
 	padding: 10px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin: auto;
+}
+#appointment-popup-close-button {
+	width: 100%;
+	text-align: right;
+	cursor: pointer;
 }
 #online-appointment-doctor-info h3 {
-	margin: 15px 15px 0 15px;
+	margin: 10px 15px 0 15px;
+	text-align: center;
+}
+#appointment-doctor-name {
+	font-size: 20px;
+	font-weight: bold;
 }
 #online-appointment-form {
 	width: 100%;
 }
 #online-appointment-form label {
 	width: 100%;
-	margin: 10px 10px 0 10px;
+	margin: 10px 0 0 0;
 	font-size: 19px;
 }
 #online-appointment-form input {
 	width: 100%;
-	margin: 10px 10px 0 10px;
+	background-color: #dddddd;
+	border-radius: 10px;
+	font-size: 19px;
+	padding: 3px 10px;
+	border: none;
+}
+#online-appointment-form select,
+#online-appointment-form textarea {
+	width: 100%;
+	background-color: #dddddd;
+	border-radius: 10px;
+	font-size: 19px;
+	padding: 3px 10px;
+	border: none;
+}
+#online-appointment-form button {
+	padding: 10px 20px;
+	margin: 10px 0 0 0;
+	font-size: 20px;
+	font-weight: bold;
+	border-radius: 5px;
+	background-color: #3498db;
+	color: white;
 }
 @media only screen and (max-width: 768px) {
 	.doctor_search_list_section {

@@ -37,10 +37,13 @@
    <!-- Appointment popup start-->
    <div id="appointment-popup-overlay">
       <div id="appointment-popup-container">
+        <h2 id="appointment-popup-close-button" onclick="hideOnlineAppointmentPopup()">X</h2>
          <h2 id="appointment-form-label">Online Apointment form</h2>
-         <div id="online-appoinement-doctor-info">
+         <div id="online-appointment-doctor-info">
             <h3 id="appointment-doctor-name">Doctor name</h3>
+            <h3 id="appointment-doctor-speciality">Doctor name</h3>
             <h3 id="appointment-doctor-contact">doctor@gmail.com</h3>
+            <h3 id="appointment-doctor-address">doctor@gmail.com</h3>
          </div>
          <div id="online-appointment-form">
             <label for="patient-name">Patient Name</label>
@@ -58,6 +61,7 @@
             <input type="text" id="patient-address">
             <label for="disease-description">Disease description</label>
             <textarea id="disease-description"></textarea>
+            <button>Submit</button>
          </div>
       </div>
    </div>
@@ -266,8 +270,8 @@
                                  <p>Contact : ${element.contactDetail}</p>
                                  <p>time : ${element.time}</p>
                                 
-                                <a href="index.html"> <button type="button" class="button button1" >online appointment</button></a>
-                                 <a href="index.html"><button type="button" class="button button1" >offline appointment</button></a>
+                                <a> <button onclick="showOnlineAppointmentPopup('${element.name}','${element.specialist}','${element.contactDetail}','${element.address}', 1)" type="button" class="button button1" >online appointment</button></a>
+                                 <a><button onclick="showOnlineAppointmentPopup('${element.name}','${element.specialist}','${element.contactDetail}','${element.address}', 2)"  type="button" class="button button1" >offline appointment</button></a>
                                  <br>
                               </div>`;
                               
@@ -282,6 +286,24 @@
             alert("Error: " + error.response.data);
             console.log(error);
          }
+      }
+
+      function showOnlineAppointmentPopup(doctor, specialist, contact,address, type) {
+        $("#appointment-popup-overlay").show();
+        $("#appointment-doctor-name").text(doctor);
+        $("#appointment-doctor-speciality").text(specialist);
+        $("#appointment-doctor-contact").text(contact);
+        if(type == 1) {
+            $("#appointment-doctor-address").hide();
+            $("#appointment-form-label").text("Online Appointment form");
+        } else {
+            $("#appointment-form-label").text("Offline Appointment form");
+            $("#appointment-doctor-address").show();
+            $("#appointment-doctor-address").text(address);
+        }
+      }
+      function hideOnlineAppointmentPopup() {
+        $("#appointment-popup-overlay").hide();
       }
    </script>
 </body>
